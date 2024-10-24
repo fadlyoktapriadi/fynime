@@ -17,3 +17,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: DynaPuff
+      fonts:
+        - asset: fonts/DynaPuff-Regular.ttf
+    - family: Outfit
+      fonts:
+        - asset: fonts/Outfit-Regular.ttf
