@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fynime/ui/components/movie_card.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -22,7 +23,6 @@ class MainScreen extends StatelessWidget {
                             fontFamily: "DynaPuff",
                             color: Color.fromARGB(255, 76, 201, 254)),
                       ),
-                    
                       Icon(
                         Icons.person_outline_rounded,
                         size: 34.0,
@@ -31,47 +31,36 @@ class MainScreen extends StatelessWidget {
                     ],
                   ),
                   const Padding(
-                    padding: EdgeInsets.only(top: 20.0), 
-                    child: Text("Hi, Fadly Oktapriadi", 
-                    style: TextStyle(
-                         fontSize: 20.0,
-                         fontFamily: "Outfit"
-                         )
-                        ),
-                    ),
+                    padding: EdgeInsets.only(top: 20.0),
+                    child: Text("Hi, Fadly Oktapriadi",
+                        style: TextStyle(fontSize: 20.0, fontFamily: "Outfit")),
+                  ),
                   const Padding(
-                    padding: EdgeInsets.only(top: 5.0), 
-                    child: Text("Hold on tight!", 
-                    style: TextStyle(
-                         fontSize: 16.0,
-                         fontFamily: "Outfit",
-                         color: Color.fromARGB(255, 90, 90, 90)
-                         )
-                        ),
+                    padding: EdgeInsets.only(top: 5.0),
+                    child: Text("Hold on tight!",
+                        style: TextStyle(
+                            fontSize: 16.0,
+                            fontFamily: "Outfit",
+                            color: Color.fromARGB(255, 90, 90, 90))),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 20.0), 
+                    padding: const EdgeInsets.only(top: 20.0),
                     child: TextField(
                       decoration: InputDecoration(
-                        hintText: "Search your favorite anime...",
-                        prefixIcon: const Icon(Icons.search),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(40.0),
-                          borderSide: BorderSide.none
-                        ),
-                        filled: true,
-                        fillColor: const Color.fromARGB(255, 253, 254, 255)
-                      ),
+                          hintText: "Search your favorite anime...",
+                          prefixIcon: const Icon(Icons.search),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40.0),
+                              borderSide: BorderSide.none),
+                          filled: true,
+                          fillColor: const Color.fromARGB(255, 253, 254, 255)),
                     ),
                   ),
                   const Padding(
                     padding: EdgeInsets.only(top: 26.0),
-                    child: 
-                      Text("Anime Popular In This Planet",
-                        style: TextStyle(
-                        fontSize: 20.0,
-                        fontFamily: "Outfit"
-                      ),
+                    child: Text(
+                      "Movie Anime Popular In This Planet",
+                      style: TextStyle(fontSize: 16.0, fontFamily: "Outfit"),
                     ),
                   ),
                   const Divider(
@@ -79,11 +68,9 @@ class MainScreen extends StatelessWidget {
                     thickness: 1.0,
                     endIndent: 110.0,
                   ),
-
+                  const MovieCard(),
                 ],
-          )
-        )
-      ),
+              ))),
     );
   }
 }
