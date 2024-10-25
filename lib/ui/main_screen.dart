@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:fynime/ui/components/movie_card.dart';
 
+import '../data/list_movie_anime.dart';
+
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: SafeArea(
           child: Padding(
@@ -43,19 +48,7 @@ class MainScreen extends StatelessWidget {
                             fontFamily: "Outfit",
                             color: Color.fromARGB(255, 90, 90, 90))),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: TextField(
-                      decoration: InputDecoration(
-                          hintText: "Search your favorite anime...",
-                          prefixIcon: const Icon(Icons.search),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(40.0),
-                              borderSide: BorderSide.none),
-                          filled: true,
-                          fillColor: const Color.fromARGB(255, 253, 254, 255)),
-                    ),
-                  ),
+                  
                   const Padding(
                     padding: EdgeInsets.only(top: 26.0),
                     child: Text(
@@ -68,9 +61,23 @@ class MainScreen extends StatelessWidget {
                     thickness: 1.0,
                     endIndent: 110.0,
                   ),
-                  const MovieCard(),
-                ],
-              ))),
-    );
+                  // MovieCard(),
+                  SizedBox(
+                    height: screenHeight * 0.7,
+                    child: 
+                      GridView.count(
+                      childAspectRatio: 0.6,
+                      crossAxisCount: 2,
+                        children: animeMovieList.map((animemove) {
+                          return MovieCard(
+                            animemovie: animemove,
+                          );
+                        }).toList(),
+                      )
+                  )
+              ]
+              )
+              ),
+    ));
   }
 }
