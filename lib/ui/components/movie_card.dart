@@ -17,17 +17,19 @@ class MovieCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset(
-                  'images/${animemovie.imagePoster}',
-                  height: 220.0,
-                  fit: BoxFit.cover,
+            Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(6.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        'images/${animemovie.imagePoster}',
+                        fit: BoxFit.cover,
+                      ),
                 ),
               ),
             ),
+            
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Column(

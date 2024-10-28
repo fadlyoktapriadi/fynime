@@ -61,19 +61,18 @@ class MainScreen extends StatelessWidget {
                     thickness: 1.0,
                     endIndent: 110.0,
                   ),
-                  // MovieCard(),
-                  SizedBox(
-                    height: screenHeight * 0.7,
-                    child: 
+                  Expanded(
+                    child: SizedBox(
+                      height: screenHeight,
+                      child: 
                       GridView.count(
-                      childAspectRatio: 0.6,
-                      crossAxisCount: 2,
-                        children: animeMovieList.map((animemove) {
-                          return MovieCard(
-                            animemovie: animemove,
-                          );
-                        }).toList(),
-                      )
+                        crossAxisCount: 2,
+                        children: animeMovieList.map((anime) {
+                            return MovieCard(animemovie: anime);
+                            }).toList()
+                        ,
+                     ),
+                    )
                   )
               ]
               )
