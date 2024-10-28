@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fynime/data/anime_movie.dart';
+import 'package:fynime/ui/detail_screen.dart';
 
 class MovieCard extends StatelessWidget {
 
@@ -10,7 +11,11 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return DetailScreen(animemovie: animemovie);
+          }));
+      },
       child: Card(
         elevation: 10.0,
         color: const Color.fromARGB(255, 255, 255, 255),
