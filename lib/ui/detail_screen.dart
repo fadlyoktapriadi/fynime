@@ -215,6 +215,19 @@ class _FavoriteButtonState extends State<FavoriteButton> {
           setState(() {
             isFavorite = !isFavorite;
           });
+          if (isFavorite) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Added to Favorite'),
+              ),
+            );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Removed from Favorite'),
+              ),
+            );
+          }
         },
       ),
     );

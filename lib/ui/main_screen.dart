@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fynime/ui/components/movie_card.dart';
+import 'package:fynime/ui/profile_screen.dart';
 
 import '../data/list_movie_anime.dart';
 
@@ -18,20 +19,27 @@ class MainScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         "FyNime.",
                         style: TextStyle(
                             fontSize: 34.0,
                             fontFamily: "DynaPuff",
                             color: Color.fromARGB(255, 76, 201, 254)),
                       ),
-                      Icon(
-                        Icons.person_outline_rounded,
-                        size: 34.0,
-                        color: Color.fromARGB(255, 76, 201, 254),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) {
+                            return const ProfileScreen();
+                          }));  
+                        },
+                        child: const Icon(
+                          Icons.person_outline_rounded,
+                          size: 34.0,
+                          color: Color.fromARGB(255, 76, 201, 254),
+                        ),
                       )
                     ],
                   ),
@@ -70,7 +78,6 @@ class MainScreen extends StatelessWidget {
                         children: animeMovieList.map((anime) {
                             return MovieCard(animemovie: anime);
                             }).toList()
-                        ,
                      ),
                     )
                   )
