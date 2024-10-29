@@ -21,13 +21,13 @@ class DetailScreen extends StatelessWidget {
             ListView(
               children: [
                 const SizedBox(
-                  height: 525,
+                  height: 510,
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(20),
+                      top: Radius.circular(30),
                     ),
                     color: Colors.white,
                   ),
@@ -35,93 +35,129 @@ class DetailScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(
-                        height: 30,
+                        height: 20,
                       ),
-                      // NOTE : TITLE
                       Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 8.0,
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        child: Column(
                           children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  animemovie.name,
-                                  // style: blackTextStyle.copyWith(
-                                  //   fontSize: 22,
-                                  // ),
-                                ),
-                                const SizedBox(
-                                  height: 2,
-                                ),
-                                Text.rich(
-                                  TextSpan(
-                                    text: 'by ',
-                                    // style: greyTextStyle.copyWith(
-                                    //   fontSize: 16,
-                                    // ),
+                            Text(
+                              animemovie.name,
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Outfit',
+                                fontWeight: FontWeight.bold
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      TextSpan(
-                                          text: animemovie.genre,
-                                          // style: blackTextStyle.copyWith(
-                                          //   fontSize: 16,
-                                          // )
-                                          ),
+                                      const Icon(
+                                        Icons.category_outlined,
+                                        color: Color.fromARGB(255, 76, 201, 254),
+                                      ),
+                                      Text(
+                                        animemovie.genre,
+                                        style: const TextStyle(
+                                          fontSize: 14,
+                                          fontFamily: 'Outfit'
+                                        ),
+                                      ),
                                     ],
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                const Icon(
-                                  Icons.star,
-                                  color: Colors.orange,
-                                ),
-                                Text(
-                                  animemovie.rating
-                                  // style: blackTextStyle,
-                                ),
-                              ],
+                                  Column(
+                                    children: [
+                                      const Icon(
+                                        Icons.rate_review_outlined,
+                                        color: Color.fromARGB(255, 76, 201, 254),
+                                      ),
+                                      Text(
+                                        animemovie.rating,
+                                        style: const TextStyle(
+                                          fontSize: 14,
+                                          fontFamily: 'Outfit'
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 15,
                       ),
-                      // NOTE : DESC
+
                       const Padding(
-                        padding: EdgeInsets.only(left: 8.0 ),
+                        padding: EdgeInsets.only(left: 20.0 ),
                         child: Text(
                           'Description',
-                          // style: regulerTextStyle.copyWith(
-                          //   fontSize: 16,
-                          // ),
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'Outfit',
+                            fontWeight: FontWeight.bold
+                          ),
                         ),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 8.0 ),
+                        padding: const EdgeInsets.only(left: 20.0, right: 20.0 ),
                         child: Text(
                           animemovie.description,
-                          // style: greyTextStyle.copyWith(
-                          //   fontSize: 14,
-                          // ),
+                          textAlign: TextAlign.justify,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'Outfit',
+                          ),
                         ),
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 15,
                       ),
-
-                     
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0, right: 20.0 ),
+                        child: 
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color.fromARGB(255, 76, 201, 254), // Background color
+                              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12), // Button padding
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0), // Rounded corners
+                              ),
+                            ),
+                            child: const Text(
+                                'Watch Now',
+                                style: TextStyle(
+                                fontSize: 16,
+                                fontFamily: 'Outfit',
+                                color: Colors.white,
+                              ),
+                            ),
+                           ),
+                          ),
+                      ),
                       const SizedBox(
-                        height: 40,
+                        height: 15,
+                      ),
+                      const SizedBox(
+                        height: 50,
                       ),
                     ],
                   ),
@@ -141,7 +177,7 @@ class DetailScreen extends StatelessWidget {
                     child: IconButton(
                         icon: const Icon(
                           Icons.arrow_back,
-                          color: Colors.grey,
+                          color: Color.fromARGB(255, 76, 201, 254),
                         ),
                         onPressed: () {
                           Navigator.pop(context);
@@ -159,7 +195,7 @@ class DetailScreen extends StatelessWidget {
 }
 
 class FavoriteButton extends StatefulWidget {
-  @override
+   @override
   _FavoriteButtonState createState() => _FavoriteButtonState();
 }
 
@@ -173,7 +209,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
       child: IconButton(
         icon: Icon(
           isFavorite ? Icons.favorite : Icons.favorite_border,
-          color: Colors.red,
+          color: const Color.fromARGB(255, 76, 201, 254),
         ),
         onPressed: () {
           setState(() {
